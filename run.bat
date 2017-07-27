@@ -1,0 +1,1 @@
+node adapters/demoLaunch.js
