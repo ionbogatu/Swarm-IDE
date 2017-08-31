@@ -12,12 +12,12 @@
         <div class="col w-md lter b-r" style="padding-left:5px; padding-right: 5px;">
             <div class="vbox">
                 <div class="nav-tabs-alt">
-                    <div class="wrapper b-b" style="">
+                    <div class="wrapper b-b">
                         <div class="font-thin h5">Add new</div>
                     </div>
-                    <ul class="nav nav-tabs row" style="margin:0;">
-                        <li class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6" style="height: 35px; width:49%;">Ctor</li>
-                        <li class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6 pull-right" style="height: 35px; width:49%;">Phase</li>
+                    <ul class="nav nav-tabs row" style="margin: 0; position: relative;">
+                        <li draggable class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6" style="height: 35px; width:49%; z-index: 10000;">Ctor</li>
+                        <li draggable class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6 pull-right" style="height: 35px; width:49%; z-index: 10000;">Phase</li>
                     </ul>
                 </div>
 
@@ -38,7 +38,7 @@
                 <div class="row-row">
                     <div class="cell" style="overflow-y: hidden; overflow-x: hidden;">
                         <div class="cell-inner">
-                            <div class="wrapper-md" ui-view="" style="height: 500px; padding: 0;">
+                            <div class="wrapper-md" droppable ui-view="" style="height: 500px; padding: 0;">
                                 <swarm-canvas edit-model="communicationObject"></swarm-canvas>
                             </div>
                         </div>

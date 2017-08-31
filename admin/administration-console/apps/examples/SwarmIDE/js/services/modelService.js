@@ -209,4 +209,23 @@ app.service('modelService', ['$window', function($window){
 
 		return new joint.shapes.html.Hexagon(props);
 	};
+
+	this.addCell = function(offset, type){
+
+		var props = {
+            _swarmId: undefined,
+            type: 'hexagon',
+            position: {
+                x: offset.left,
+                y: offset.top
+            },
+            attrs: {
+                text: {
+                    text: 'id'
+                }
+            }
+        };
+
+		return new joint.shapes.html.Hexagon(props);
+	}
 }]);

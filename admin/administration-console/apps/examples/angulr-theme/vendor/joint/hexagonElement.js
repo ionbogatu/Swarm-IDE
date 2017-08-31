@@ -1,10 +1,17 @@
+var hexagonSize = {
+    width: 60,
+    height: 90
+}
+
+var hsw = hexagonSize.width,
+    hsh = hexagonSize.height;
+
 joint.shapes.html = {};
 joint.shapes.html.Hexagon = joint.shapes.basic.Generic.extend({
 	markup: [
-		'<path d="M30 0 L0 24 L0 68 L30 90 L60 68 L60 24 Z" />',
+		'<path d="M' + hsw/2 + ' 0 L0 ' + hsh/3.75 + ' L0 ' + hsh/1.32 + ' L' + hsw/2 + ' ' + hsh + ' L' + hsw + ' ' + hsh/1.32 + ' L' + hsw + ' ' + hsh/3.75 + ' Z" />',
 		'<text/>',
-		'<g class="handlers">',
-		'</g>'
+		'<g class="handlers"></g>'
 	].join(''),
 
 	defaults: joint.util.deepSupplement({
