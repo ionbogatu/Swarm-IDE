@@ -6,3 +6,116 @@
     display: inline-block;
     clear:both;
 }
+
+/* swarm-ide styles */
+
+.canvas{
+  	padding: 0;
+  	overflow: scroll;
+    border: 1px solid #999;
+}
+
+#paper{
+  	background-color: #f0f0f0;
+    background-size: 90px 90px, 90px 90px, 15px 15px, 15px 15px;
+    background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+    background-image:
+      	-webkit-linear-gradient(white 2px, transparent 2px),
+        -webkit-linear-gradient(0, white 2px, transparent 2px),
+        -webkit-linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+        -webkit-linear-gradient(0, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+    
+    background-image:
+        -moz-linear-gradient(white 2px, transparent 2px),
+        -moz-linear-gradient(0, white 2px, transparent 2px),
+        -moz-linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+        -moz-linear-gradient(0, rgba(255, 255, 255, 0.3) 1px, transparent 1px);
+}
+
+.canvas::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+.canvas::-webkit-scrollbar-track {
+    background-color: #f0f0f0;
+    /* the new scrollbar will have a flat appearance with the set background color */
+}
+
+.canvas::-webkit-scrollbar-thumb {
+    background-color: #7266ba;
+    border: 1px solid #7266ba;
+    /* this will style the thumb, ignoring the track */
+}
+
+.canvas::-webkit-scrollbar-button {
+    /* optionally, you can style the top and the bottom buttons (left and right for horizontal bars) */
+}
+
+.canvas::-webkit-scrollbar-corner {
+    background-color: #f0f0f0;
+    /* if both the vertical and the horizontal bars appear, then perhaps the right bottom corner also needs to be styled */
+}
+
+.swarm-tree > .tree > ul{
+    padding-left: 0;
+    margin-left: 0;
+}
+
+.swarm-tree > .tree {
+    min-height: 645px;
+}
+
+.swarm-items-wrapper {
+    border: 1px solid #999;
+}
+
+.swarm-items-wrapper .swarm-items {
+    list-style: none;
+    margin: 0;
+    margin-top: 20px;
+    height: 300px;
+    position: relative;
+}
+
+.swarm-items-wrapper .swarm-items .swarm-item {
+    background: #7266ba;
+    border: 1px solid #7266ba;
+    text-align: center;
+    width: 100%;
+    padding: 3px 0;
+    color: #ffffff;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.swarm-items-wrapper .swarm-items .swarm-item:hover {
+    background: #6254b2;
+    border: 1px solid #5a4daa;
+    cursor: pointer;
+}
+
+.tree > ul li {
+    color: #ffffff;
+}
+
+.tree > ul li > span {
+    background: #7266ba;
+    border-radius: 0;
+}
+
+.tree li.parent_li>span:hover, .tree li.parent_li>span:hover+ul li span {
+    background: #6254b2;
+    border: 1px solid #5a4daa;
+    color: #ffffff;
+}
+
+.zeroRightPadding{
+    padding-right: 0;
+}
+
+.consoleWrapper{
+    margin-top: 15px;
+}
+
+/* /swarm-ide styles */

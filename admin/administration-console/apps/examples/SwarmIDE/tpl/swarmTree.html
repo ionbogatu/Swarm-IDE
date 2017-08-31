@@ -1,0 +1,33 @@
+<div class="swarm-tree">    
+    <div class="tree well">
+        <ul>
+            <li>
+                <span><i class="fa fa-minus-square-o"></i> Project</span>
+                <ul>
+                    <li>
+                        <span><i class="fa fa-minus-square-o"></i> Adapters</span> <a href="">Load</a>
+                        <ul>
+                            <li ng-repeat="adapter in project.adapters">
+                                <span><i class="fa fa-cube"></i> {{ adapter.name }} </span> <a href="#/app/swarmide/edit/1">Edit</a>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-cube"></i> Test Adapter </span> <a href="#app/swarmide/edit">Edit</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span><i class="fa fa-minus-square-o"></i> Swarms</span> <a href="">Goes somewhere</a>
+                        <ul>
+                            <li ng-repeat="swarm in project.swarms">
+                                <span><i class="fa fa-cube"></i> {{ swarm.name }} </span> <a ng-click="startEditSwarm(swarm)">Edit</a>
+                            </li>
+                            <li>
+                                <span><i class="fa fa-cube"></i> Test Swarm </span> <a href="#app/swarmide/edit">Edit</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -19,10 +19,15 @@
 	<link rel="stylesheet" href="../angulr-theme/css/angular-material.min.css">
 
 	<link rel="stylesheet" type="text/css" href="../angulr-theme/vendor/jquery/footable/footable.standalone.min.css">
+
+	<!-- JointJS -->
+    <link href="css/joint/joint.css" rel="stylesheet"/>
+
+    <!-- Bootstrap Treeview -->
+    <link href="css/bootstrap-treeview/bootstrap-combined.min.css" rel="stylesheet"/>
+    <link href="css/bootstrap-treeview/bootstrap-treeview.css" rel="stylesheet"/>
+
 	<link rel="stylesheet" href="css/style.css"/>
-
-
-
 </head>
 
 <body ng-controller="AppCtrl" ng-init="init()">
@@ -43,6 +48,9 @@
 
 <!-- jQuery -->
 <script src="../angulr-theme/vendor/jquery/jquery.min.js"></script>
+<script src="../angulr-theme/vendor/jquery/jquery-ui-1.10.3.custom.min.js"></script>
+
+<!-- Bootstrap -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="../angulr-theme/vendor/jquery/dateFormat/dateFormat.min.js"></script>
 <script src="../angulr-theme/vendor/jquery/dateFormat/jquery-dateFormat.min.js"></script>
@@ -90,6 +98,16 @@
 <!-- infinite-scroll -->
 <script src="../angulr-theme/vendor/modules/ng-infinite-scroll/ng-infinite-scroll.min.js"></script>
 
+<!-- Lodash -->
+<script src="../angulr-theme/vendor/lodash/lodash.js"></script>
+
+<!-- Backbone -->
+<script src="../angulr-theme/vendor/backbone/backbone.js"></script>
+
+<!-- Joint -->
+<script src="../angulr-theme/vendor/joint/joint.js"></script>
+<script src="../angulr-theme/vendor/joint/hexagonElement.js"></script>
+
 <!-- App -->
 <script src="js/app.js"></script>
 <script src="../angulr-theme/app/config.js"></script>
@@ -110,6 +128,12 @@
 <script src="../angulr-theme/app/directives/ui-validate.js"></script>
 <script src="../angulr-theme/app/services/ui-load.js"></script>
 <script src="../angulr-theme/app/services/swarm-hub-service.js"></script>
+<script src="js/services/modelService.js"></script>
+<script src="js/controllers/swarmTreeController.js"></script>
+<script src="js/controllers/swarmCanvasController.js"></script>
+<script src="js/directives/droppable.js"></script>
+<script src="js/directives/swarmTree.js"></script>
+<script src="js/directives/swarmCanvas.js"></script>
 
 <!--textAngular-->
 <script src='../angulr-theme/vendor/modules/textAngular/textAngular-rangy.min.js'></script>

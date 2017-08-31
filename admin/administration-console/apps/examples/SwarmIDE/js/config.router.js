@@ -24,7 +24,7 @@ angular.module('app')
                         templateUrl: 'tpl/app.html'
                     })
                     .state('app.swarmide',{
-                       url:'/swarmide',
+                        url:'/swarmide',
                         templateUrl:'tpl/swarmIde.html',
                         resolve:{
                             deps:['$ocLazyLoad',
@@ -35,7 +35,10 @@ angular.module('app')
                                 }]
                         }
                     })
-
+                    .state('app.swarmide.edit',{
+                        url:'/app/swarmide/edit/1',
+                        template:'<p>Hello World</p>'
+                    })
                     .state('access.404', {
                         url: '/404',
                         templateUrl: 'tpl/page_404.html'
