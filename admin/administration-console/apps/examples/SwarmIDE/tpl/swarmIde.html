@@ -21,33 +21,12 @@
                     </ul>
                 </div>
 
-                <div class="wrapper" style="border-top: 1px solid #dee5e7; margin-top: 10px;">
-                    <div class="font-thin h5">Header</div>
+                <div class="wrapper" style="margin-top: 10px;">
+                    <div class="font-thin h5">Project structure</div>
                 </div>
 
                 <div class="row-row">
                     <swarm-tree model="project" edit-model="communicationObject"></swarm-tree>
-                    <div class="cell scrollable hover">
-                        <div class="cell-inner">
-                            <div class="tab-content">
-                                <div class="tab-pane" ng-class="{'active': tabs[0]}">
-                                    <div class="wrapper-md">
-
-                                    </div>
-                                </div>
-                                <div class="tab-pane" ng-class="{'active': tabs[1]}">
-                                    <div class="wrapper-md">
-                                        Month report
-                                    </div>
-                                </div>
-                                <div class="tab-pane" ng-class="{'active': tabs[2]}">
-                                    <div class="wrapper-md">
-                                        Year report
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -57,19 +36,10 @@
         <div class="col">
             <div class="vbox">
                 <div class="row-row">
-                    <div class="cell">
+                    <div class="cell" style="overflow-y: hidden; overflow-x: hidden;">
                         <div class="cell-inner">
-                            <div class="wrapper-md">
-
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ipsum dui. Aenean id suscipit urna. Nulla ullamcorper leo et dui vulputate, sollicitudin auctor ante aliquam. Praesent quam urna, pharetra ac est et, scelerisque laoreet mi. Suspendisse pharetra ut turpis bibendum elementum. Etiam ac viverra velit, eget auctor odio. Nulla tempus sem ac massa elementum, id porta turpis elementum. Quisque porttitor lectus nec lorem porta convallis. Sed sed neque dolor. Integer auctor ante orci, eu bibendum nunc fringilla eu. Etiam molestie pharetra accumsan. Nulla interdum ex ac massa interdum, faucibus placerat dolor tempor. Sed consequat commodo mauris.
-
-                                Duis nisl metus, tempus ut congue nec, viverra rhoncus enim. Suspendisse sit amet ultricies diam. Integer a odio convallis, tincidunt diam vitae, commodo nisl. Mauris eget fermentum metus. Praesent mattis velit quis neque tristique lacinia. In ornare pretium tortor vitae pulvinar. Nunc molestie mattis diam.
-
-                                Etiam id tortor at lacus auctor malesuada sit amet tincidunt erat. Nunc ultricies felis nec magna varius hendrerit. Pellentesque id molestie diam. Nullam odio nisl, lobortis non urna a, semper tempus massa. Proin porttitor nibh vitae risus sagittis vulputate. Morbi consectetur porttitor ex sed dignissim. Curabitur egestas felis ut leo suscipit, sed euismod felis congue. Sed egestas mauris non odio ultrices scelerisque. Curabitur sit amet odio id eros varius placerat. In ultrices aliquet urna, sit amet convallis elit elementum id. Duis luctus leo ut interdum gravida. Nam eget leo et neque sagittis faucibus. Etiam a quam elit.
-
-                                Donec feugiat egestas magna, at mollis mauris convallis non. Maecenas porta luctus nulla et commodo. Praesent interdum enim lacinia dictum imperdiet. Donec vel blandit lacus. Vestibulum cursus, tortor eu suscipit elementum, justo justo vulputate purus, ac facilisis ante tortor quis leo. Nulla nulla enim, mattis quis risus nec, dapibus condimentum urna. In commodo felis orci, nec fringilla lectus mattis ac. Sed porttitor pharetra mi, quis porttitor mauris lacinia interdum. Integer dolor sem, dictum vitae hendrerit quis, tristique vitae felis. Aenean odio orci, hendrerit tincidunt tristique ac, ornare vel ligula.
-
-                                Quisque tempor quis enim ac sollicitudin. Aliquam erat volutpat. Integer felis felis, ullamcorper a sodales ut, facilisis ac metus. Mauris sollicitudin, purus sollicitudin ultricies venenatis, purus ante vestibulum risus, vel gravida nisl nisl sed ex. Integer tincidunt tincidunt augue. Vestibulum a lacus quis augue pellentesque tincidunt. Ut bibendum nec augue nec blandit. Maecenas quis diam nulla. Aliquam sed massa leo. In feugiat dapibus sollicitudin. Quisque quis porttitor leo, quis ornare neque. Curabitur tortor nibh, viverra eu mi id, aliquam faucibus purus.
+                            <div class="wrapper-md" ui-view="" style="height: 500px; padding: 0;">
+                                <swarm-canvas edit-model="communicationObject"></swarm-canvas>
                             </div>
                         </div>
                     </div>

@@ -2,27 +2,27 @@
     <div class="tree well" style="background: none; border:0; padding-left: 0; padding-right: 0;">
         <ul>
             <li>
-                <span><i class="fa fa-minus-square-o"></i> Project</span>
+                <a href><span><i class="fa fa-minus-square-o"></i> Project</span>
                 <ul>
                     <li>
-                        <span><i class="fa fa-minus-square-o"></i> Adapters</span> <a href="">Load</a>
+                        <a><span><i class="fa fa-minus-square-o"></i> Adapters</span></a>
                         <ul>
                             <li ng-repeat="adapter in project.adapters">
-                                <span><i class="fa fa-cube"></i> {{ adapter.name }} </span> <a href="#/app/swarmide/edit/1">Edit</a>
+                                <a href="#/app/swarmide/edit/1"><span><i class="fa fa-cube"></i> {{ adapter.name }} </span></a>
                             </li>
                             <li>
-                                <span><i class="fa fa-cube"></i> Test Adapter </span> <a href="#app/swarmide/edit">Edit</a>
+                                <a href="#app/swarmide/edit"><span><i class="fa fa-cube"></i> Test Adapter </span></a>
                             </li>
                         </ul>
                     </li>
                     <li>
-                        <span><i class="fa fa-minus-square-o"></i> Swarms</span> <a href="">Load</a>
+                        <a><span><i class="fa fa-minus-square-o"></i> Swarms</span></a>
                         <ul>
                             <li ng-repeat="swarm in project.swarms">
-                                <span><i class="fa fa-cube"></i> {{ swarm.name }} </span> <a ng-click="startEditSwarm(swarm)">Edit</a>
+                                <a href ><span ng-click="startEditSwarm(swarm)"><i class="fa fa-cube"></i> {{ swarm.name }} </span></a>
                             </li>
                             <li>
-                                <span><i class="fa fa-cube"></i> Test Swarm </span> <a href="#app/swarmide/edit">Edit</a>
+                                <a href> <span class="disabled"><i class="fa fa-cube"></i> Test Swarm </span></a>
                             </li>
                         </ul>
                     </li>
