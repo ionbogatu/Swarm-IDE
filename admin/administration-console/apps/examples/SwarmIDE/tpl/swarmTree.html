@@ -1,5 +1,5 @@
 <div class="swarm-tree">    
-    <div class="tree well">
+    <div class="tree well" style="background: none; border:0; padding-left: 0; padding-right: 0;">
         <ul>
             <li>
                 <span><i class="fa fa-minus-square-o"></i> Project</span>
@@ -16,7 +16,7 @@
                         </ul>
                     </li>
                     <li>
-                        <span><i class="fa fa-minus-square-o"></i> Swarms</span> <a href="">Goes somewhere</a>
+                        <span><i class="fa fa-minus-square-o"></i> Swarms</span> <a href="">Load</a>
                         <ul>
                             <li ng-repeat="swarm in project.swarms">
                                 <span><i class="fa fa-cube"></i> {{ swarm.name }} </span> <a ng-click="startEditSwarm(swarm)">Edit</a>

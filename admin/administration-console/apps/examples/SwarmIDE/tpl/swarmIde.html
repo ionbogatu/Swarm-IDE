@@ -1,75 +1,82 @@
-<div ng-controller="swarmIdeController">
+<!-- hbox layout -->
+<div ng-controller="swarmIdeController" style="height: 100%">
+    <!-- hbox layout -->
+    <div class="hbox hbox-auto-xs bg-light " ng-init="
+  app.settings.asideFolded = true;
+  app.settings.asideFixed = true;
+  app.settings.asideDock = false;
+  app.settings.container = false;
+  app.hideAside = false
+  ">
+        <!-- column -->
+        <div class="col w-md lter b-r" style="padding-left:5px; padding-right: 5px;">
+            <div class="vbox">
+                <div class="nav-tabs-alt">
+                    <div class="wrapper b-b" style="">
+                        <div class="font-thin h5">Add new</div>
+                    </div>
+                    <ul class="nav nav-tabs row" style="margin:0;">
+                        <li class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6" style="height: 35px; width:49%;">Ctor</li>
+                        <li class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6 pull-right" style="height: 35px; width:49%;">Phase</li>
+                    </ul>
+                </div>
 
-	<div class="ng-scope" ui-view="">
-		<!--Page titlte-->
-		<div class="bg-light lter b-b wrapper-md ng-scope pageTitle">
-			<h1 class="m-n font-thin h3">Swarm IDE</h1>
-		</div>
+                <div class="wrapper" style="border-top: 1px solid #dee5e7; margin-top: 10px;">
+                    <div class="font-thin h5">Header</div>
+                </div>
 
-		<div class="wrapper-md ng-scope" style="padding-left:20px; padding-right: 20px;">
-			
-			<!-- Content start -->
+                <div class="row-row">
+                    <swarm-tree model="project" edit-model="communicationObject"></swarm-tree>
+                    <div class="cell scrollable hover">
+                        <div class="cell-inner">
+                            <div class="tab-content">
+                                <div class="tab-pane" ng-class="{'active': tabs[0]}">
+                                    <div class="wrapper-md">
 
-			<div class="container-fluid">
-	            <!--<div class="row">
-	                <div class="col-lg-offset-3 col-lg-9" style="height: 40px; background: olive; color: white;">Tilte + History buttons
-	                </div>
-	            </div>-->
-	            <div class="row">
-	                <div class="col-lg-3">
-	                    <swarm-tree model="project" edit-model="communicationObject"></swarm-tree>
-	                </div>
-	                <div class="col-lg-6 canvas" ui-view="" style="height: 430px;">
-	                    <swarm-canvas edit-model="communicationObject"></swarm-canvas>
-	                </div>
-	                <div class="col-lg-3 zeroRightPadding">
-						<div class="swarm-items-wrapper" style="height: 430px;">
-							<div class="container-fluid">
-								<div class="row">
-									<div class="col-lg-10 col-lg-offset-1">
-										<ul class="swarm-items">
-											<li draggable class="swarm-item">
-												Constructor
-											</li>
-											<li draggable class="swarm-item">
-												Phase
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-	                </div>
-	                <div class="col-lg-9 consoleWrapper" style="height: 200px; background: #1C2B36; color: #869fb1;">
-	                    Console
-	                </div>
-	            </div>
-	        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" ng-class="{'active': tabs[1]}">
+                                    <div class="wrapper-md">
+                                        Month report
+                                    </div>
+                                </div>
+                                <div class="tab-pane" ng-class="{'active': tabs[2]}">
+                                    <div class="wrapper-md">
+                                        Year report
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /column -->
 
-			<!-- Content end -->
+        <!-- column -->
+        <div class="col">
+            <div class="vbox">
+                <div class="row-row">
+                    <div class="cell">
+                        <div class="cell-inner">
+                            <div class="wrapper-md">
 
-		</div>
-	</div>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ipsum dui. Aenean id suscipit urna. Nulla ullamcorper leo et dui vulputate, sollicitudin auctor ante aliquam. Praesent quam urna, pharetra ac est et, scelerisque laoreet mi. Suspendisse pharetra ut turpis bibendum elementum. Etiam ac viverra velit, eget auctor odio. Nulla tempus sem ac massa elementum, id porta turpis elementum. Quisque porttitor lectus nec lorem porta convallis. Sed sed neque dolor. Integer auctor ante orci, eu bibendum nunc fringilla eu. Etiam molestie pharetra accumsan. Nulla interdum ex ac massa interdum, faucibus placerat dolor tempor. Sed consequat commodo mauris.
 
-	<!-- modal -->
+                                Duis nisl metus, tempus ut congue nec, viverra rhoncus enim. Suspendisse sit amet ultricies diam. Integer a odio convallis, tincidunt diam vitae, commodo nisl. Mauris eget fermentum metus. Praesent mattis velit quis neque tristique lacinia. In ornare pretium tortor vitae pulvinar. Nunc molestie mattis diam.
 
-	<div class="modal fade" tabindex="-1" role="dialog">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-					<h4 class="modal-title">Modal title</h4>
-				</div>
-				<div class="modal-body">
-					<p>One fine body&hellip;</p>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
+                                Etiam id tortor at lacus auctor malesuada sit amet tincidunt erat. Nunc ultricies felis nec magna varius hendrerit. Pellentesque id molestie diam. Nullam odio nisl, lobortis non urna a, semper tempus massa. Proin porttitor nibh vitae risus sagittis vulputate. Morbi consectetur porttitor ex sed dignissim. Curabitur egestas felis ut leo suscipit, sed euismod felis congue. Sed egestas mauris non odio ultrices scelerisque. Curabitur sit amet odio id eros varius placerat. In ultrices aliquet urna, sit amet convallis elit elementum id. Duis luctus leo ut interdum gravida. Nam eget leo et neque sagittis faucibus. Etiam a quam elit.
 
-	<!-- /modal -->
+                                Donec feugiat egestas magna, at mollis mauris convallis non. Maecenas porta luctus nulla et commodo. Praesent interdum enim lacinia dictum imperdiet. Donec vel blandit lacus. Vestibulum cursus, tortor eu suscipit elementum, justo justo vulputate purus, ac facilisis ante tortor quis leo. Nulla nulla enim, mattis quis risus nec, dapibus condimentum urna. In commodo felis orci, nec fringilla lectus mattis ac. Sed porttitor pharetra mi, quis porttitor mauris lacinia interdum. Integer dolor sem, dictum vitae hendrerit quis, tristique vitae felis. Aenean odio orci, hendrerit tincidunt tristique ac, ornare vel ligula.
+
+                                Quisque tempor quis enim ac sollicitudin. Aliquam erat volutpat. Integer felis felis, ullamcorper a sodales ut, facilisis ac metus. Mauris sollicitudin, purus sollicitudin ultricies venenatis, purus ante vestibulum risus, vel gravida nisl nisl sed ex. Integer tincidunt tincidunt augue. Vestibulum a lacus quis augue pellentesque tincidunt. Ut bibendum nec augue nec blandit. Maecenas quis diam nulla. Aliquam sed massa leo. In feugiat dapibus sollicitudin. Quisque quis porttitor leo, quis ornare neque. Curabitur tortor nibh, viverra eu mi id, aliquam faucibus purus.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /column -->
+    </div>
+    <!-- /hbox layout -->
 </div>
