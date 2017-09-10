@@ -2,12 +2,12 @@
 <div ng-controller="swarmIdeController" style="height: 100%">
     <!-- hbox layout -->
     <div class="hbox hbox-auto-xs bg-light " ng-init="
-  app.settings.asideFolded = true;
-  app.settings.asideFixed = true;
-  app.settings.asideDock = false;
-  app.settings.container = false;
-  app.hideAside = false
-  ">
+        app.settings.asideFolded = true;
+        app.settings.asideFixed = true;
+        app.settings.asideDock = false;
+        app.settings.container = false;
+        app.hideAside = false
+        ">
         <!-- column -->
         <div class="col w-md lter b-r" style="padding-left:5px; padding-right: 5px;">
             <div class="vbox">
@@ -16,8 +16,8 @@
                         <div class="font-thin h5">Add new</div>
                     </div>
                     <ul class="nav nav-tabs row" style="margin: 0; position: relative;">
-                        <li draggable class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6" style="height: 35px; width:49%; z-index: 10000;">Ctor</li>
-                        <li draggable class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6 pull-right" style="height: 35px; width:49%; z-index: 10000;">Phase</li>
+                        <li draggable class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6 create-ctor-button" swarm-type="ctor">Ctor</li>
+                        <li draggable class="btn btn-primary col-sm-6 col-lg-6 col-md-6 col-xs-6 pull-right create-phase-button" swarm-type="phase">Phase</li>
                     </ul>
                 </div>
 

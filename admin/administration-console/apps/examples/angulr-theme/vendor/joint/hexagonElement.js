@@ -7,11 +7,11 @@ var hsw = hexagonSize.width,
     hsh = hexagonSize.height;
 
 joint.shapes.html = {};
-joint.shapes.html.Hexagon = joint.shapes.basic.Generic.extend({
+joint.shapes.html.Hexagon = joint.shapes.devs.Model.extend({
 	markup: [
+        '<circle class="handlers-wrapper" cx="30" cy="45" r="60" stroke="silver" stroke-opacity="0.7" stroke-width="7" fill="transparent"/>',
 		'<path d="M' + hsw/2 + ' 0 L0 ' + hsh/3.75 + ' L0 ' + hsh/1.32 + ' L' + hsw/2 + ' ' + hsh + ' L' + hsw + ' ' + hsh/1.32 + ' L' + hsw + ' ' + hsh/3.75 + ' Z" />',
-		'<text/>',
-		'<g class="handlers"></g>'
+		'<text/>'
 	].join(''),
 
 	defaults: joint.util.deepSupplement({
@@ -30,22 +30,67 @@ joint.shapes.html.Hexagon = joint.shapes.basic.Generic.extend({
             	'y-alignment': 'middle',
             	'x-alignment': 'middle',
             	fill: "#7266ba"
-            },
-            '.handlers': {
-            	'ref-x': .5,
-            	'ref-y': .5,
-            	ref: 'path',
-            	'y-alignment': 'middle',
-            	'x-alignment': 'middle',
-            	width: 100,
-            	height: 100
+            }           
+        },
+        ports: {
+            groups: {
+                'top': {
+                    attrs: {
+                        circle: {
+                            fill: 'white',
+                            stroke: '#aaa',
+                            'stroke-width': 2,
+                            cx: 30,
+                            cy: -16,
+                            r: 7,
+                            magnet: false,
+                            class: 'handler'
+                        }
+                    }
+                },
+                'bottom': {
+                    attrs: {
+                        circle: {
+                            fill: 'white',
+                            stroke: '#aaa',
+                            'stroke-width': 2,
+                            cx: 30,
+                            cy: 105,
+                            r: 7,
+                            magnet: false,
+                            class: 'handler'
+                        }
+                    }
+                },
+                'left': {
+                    attrs: {
+                        circle: {
+                            fill: 'white',
+                            stroke: '#aaa',
+                            'stroke-width': 2,
+                            cx: -30,
+                            cy: 44,
+                            r: 7,
+                            magnet: false,
+                            class: 'handler'
+                        }
+                    }
+                },
+                'right': {
+                    attrs: {
+                        circle: {
+                            fill: 'white',
+                            stroke: '#aaa',
+                            'stroke-width': 2,
+                            cx: 90,
+                            cy: 44,
+                            r: 7,
+                            magnet: false,
+                            class: 'handler'
+                        }
+                    }
+                }
             }
-        },
-        events: {
-        	'mouseover': 'mouseOverEventHandler'
-        },
-        mouseOverEventHandler: function(){
-        	console.log('hover');
         }
     }, joint.shapes.basic.Generic.prototype.defaults)
 });

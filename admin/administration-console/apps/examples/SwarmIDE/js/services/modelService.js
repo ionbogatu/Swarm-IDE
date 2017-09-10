@@ -10,6 +10,7 @@ app.service('modelService', ['$window', function($window){
 			{
 				_swarmId: 'hexagon1',
 				type: 'hexagon',
+				swarmComponentType: 'phase',
 				position: {
 					x: 100,
 					y: 40
@@ -22,6 +23,7 @@ app.service('modelService', ['$window', function($window){
 			},{
 				_swarmId: 'hexagon2',
 				type: 'hexagon',
+				swarmComponentType: 'phase',
 				position: {
 					x: 380,
 					y: 40
@@ -34,6 +36,7 @@ app.service('modelService', ['$window', function($window){
 			},{
 				_swarmId: 'hexagon3',
 				type: 'hexagon',
+				swarmComponentType: 'ctor',
 				position: {
 					x: 220,
 					y: 220
@@ -46,6 +49,7 @@ app.service('modelService', ['$window', function($window){
 			},{
 				_swarmId: 'hexagon4',
 				type: 'hexagon',
+				swarmComponentType: 'phase',
 				position: {
 					x: 500,
 					y: 280
@@ -58,6 +62,7 @@ app.service('modelService', ['$window', function($window){
 			},{
 				_swarmId: 'hexagon5',
 				type: 'hexagon',
+				swarmComponentType: 'phase',
 				position: {
 					x: 520,
 					y: 160
@@ -90,6 +95,7 @@ app.service('modelService', ['$window', function($window){
                 {
                     _swarmId: 'hexagon1',
                     type: 'hexagon',
+                    swarmComponentType: 'ctor',
                     position: {
                         x: 50,
                         y: 240
@@ -102,6 +108,7 @@ app.service('modelService', ['$window', function($window){
                 },{
                     _swarmId: 'hexagon2',
                     type: 'hexagon',
+                    swarmComponentType: 'phase',
                     position: {
                         x: 280,
                         y: 40
@@ -113,6 +120,7 @@ app.service('modelService', ['$window', function($window){
                     }
                 },{
                     _swarmId: 'hexagon3',
+                    swarmComponentType: 'phase',
                     type: 'hexagon',
                     position: {
                         x: 220,
@@ -207,14 +215,22 @@ app.service('modelService', ['$window', function($window){
 
 	this.addHexagon = function(props){
 
-		return new joint.shapes.html.Hexagon(props);
+		var cell = new joint.shapes.html.Hexagon(props);
+
+		cell.addPort({group: 'top'});
+	    cell.addPort({group: 'bottom'});
+	    cell.addPort({group: 'left'});
+	    cell.addPort({group: 'right'});
+
+		return cell;
 	};
 
-	this.addCell = function(offset, type){
+	this.addCell = function(offset, swarmComponentType){
 
 		var props = {
             _swarmId: undefined,
             type: 'hexagon',
+            swarmComponentType: swarmComponentType,
             position: {
                 x: offset.left,
                 y: offset.top
@@ -226,6 +242,6 @@ app.service('modelService', ['$window', function($window){
             }
         };
 
-		return new joint.shapes.html.Hexagon(props);
+		return _self.addHexagon(props);
 	}
 }]);

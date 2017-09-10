@@ -8,8 +8,8 @@ app.directive('droppable', ['$compile', 'modelService', function($compile, model
       element.droppable({
         drop:function(event,ui) {
 
-          var type = $(ui.draggable).attr('id');
-          
+          var type = $(ui.draggable).attr('swarm-type');
+
           var canvasOffset = $(event.target).offset();
 
           var offset = {

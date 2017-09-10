@@ -118,4 +118,20 @@
     margin-top: 15px;
 }
 
+.handlers-wrapper, .handler{
+    display: none;
+}
+
+.create-ctor-button{
+    height: 35px;
+    width:49%;
+    z-index: 10000;
+}
+
+.create-phase-button{
+    height: 35px;
+    width:49%;
+    z-index: 10000;
+}
+
 /* /swarm-ide styles */

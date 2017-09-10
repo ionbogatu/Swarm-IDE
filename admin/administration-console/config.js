@@ -1,7 +1,7 @@
 function Config(){
 	return {
 		title: "PlusPrivacy Administration",
-		brand: "{+P} Admin Console",
+		brand: "PrivateSky Admin",
 		mobileDebug: true,
 		swarmClient: {
 			host: "192.168.1.66",
