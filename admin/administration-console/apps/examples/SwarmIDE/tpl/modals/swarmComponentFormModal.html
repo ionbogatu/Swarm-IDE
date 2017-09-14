@@ -1,1 +1,62 @@
-<p>Modal</p>
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="close(false)" data-dismiss="modal" aria-hidden="true">×</button>
+            <h4 class="modal-title ng-binding"></h4>
+        </div>
+
+        <div class="modal-body">
+            <form ng-show="formularType === 'ctor'" name="add-ctor-form" class="form-validation">
+                <div class="list-group list-group-sm">
+                    <label for="ctor-name">Ctor name:</label>
+                    <div class="list-group-item">
+                        <input id="ctor-name" placeholder="Ctor name" class="form-control no-border" ng-model="object.name" required="">
+                    </div>
+                </div>
+                <div class="list-group-sm">
+                    <label for="ctor-name">Params:</label>
+                    <ul class="ctor-params-wrapper">
+                        <li ng-repeat="(key, param) in params">
+                            <div class="list-group-item col-md-11">
+                                Name: <input placeholder="name" class="form-control no-border" ng-model="params[key].name" required="">
+                            </div>
+                            <!--<div class="list-group-item col-md-offset-1 col-md-5">
+                                Value: <input placeholder="value" class="form-control no-border" ng-model="params[key].value" required="">
+                            </div>-->
+                            <div class="add-more-params-button col-md-1">
+                                <i class="fa fa-plus-square add-more-params-button-icon" aria-hidden="true" ng-click="addMoreParams(key)"></i>
+                                <i class="fa fa-minus-square" aria-hidden="true" ng-click="removeParam(key)"></i>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="list-group list-group-sm ctor-code-wrapper">
+                    <label for="ctor-code">Code:</label>
+                    <div class="list-group-item">
+                        <textarea id="ctor-code" placeholder="Code" class="form-control no-border ctor-code" ng-model="object.code" required=""></textarea>
+                    </div>
+                </div>
+            </form>
+
+            <form ng-if="formularType === 'phase'" name="add-phase-form" class="form-validation ng-pristine ng-invalid ng-invalid-required">
+                <div class="list-group list-group-sm">
+                    <label for="phase-name">Ctor name:</label>
+                    <div class="list-group-item">
+                        <input id="phase-name" placeholder="Phase name" class="form-control no-border" ng-model="object.name" required="">
+                    </div>
+                </div>
+                <div class="list-group list-group-sm ctor-code-wrapper">
+                    <label for="phase-code">Code:</label>
+                    <div class="list-group-item">
+                        <textarea id="phase-code" placeholder="Code" class="form-control no-border phase-code" ng-model="object.code" required=""></textarea>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="modal-footer">
+            <button class="btn btn-lg btn-primary btn-block ng-binding" ng-click="saveObject(formularType)">Save {{formularType | capitalize}}</button>
+        </div>
+    </div>
+</div>

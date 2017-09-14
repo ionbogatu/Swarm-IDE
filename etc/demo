@@ -38,6 +38,7 @@
                         {"core":"etc/adapters/WSServer.js",                          "enabled":true  , "step":10},
                         {"node":"admin/adapters/TestsManager.js",                    "enabled":true, "step":5},
                         {"node":"admin/adapters/FormsAdapter.js",                    "enabled":true, "step":5},
+                        {"node":"admin/adapters/SwarmPersistenceAdapter.js",         "enabled":true, "step":5},
                         {"node":"adapters/HelloWorld.js",                      "enabled":true, "step":10}
             ]
    },

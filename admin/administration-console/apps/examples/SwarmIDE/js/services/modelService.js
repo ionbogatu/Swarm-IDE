@@ -1,169 +1,41 @@
 "use strict"
 
-app.service('modelService', ['$window', function($window){
+app.service('modelService', ['$window', 'swarmHubService', function($window, swarmHubService){
+
+    var swarmHub = swarmHubService.hub;
 
 	var _self = this;
 
-	var models = {
-		'1': {
-			nodes: [
-			{
-				_swarmId: 'hexagon1',
-				type: 'hexagon',
-				swarmComponentType: 'phase',
-				position: {
-					x: 100,
-					y: 40
-				},
-				attrs: {
-					text: {
-						text: 'id'
-					}
-				}
-			},{
-				_swarmId: 'hexagon2',
-				type: 'hexagon',
-				swarmComponentType: 'phase',
-				position: {
-					x: 380,
-					y: 40
-				},
-				attrs: {
-					text: {
-						text: 'id'
-					}
-				}
-			},{
-				_swarmId: 'hexagon3',
-				type: 'hexagon',
-				swarmComponentType: 'ctor',
-				position: {
-					x: 220,
-					y: 220
-				},
-				attrs: {
-					text: {
-						text: 'id'
-					}
-				}
-			},{
-				_swarmId: 'hexagon4',
-				type: 'hexagon',
-				swarmComponentType: 'phase',
-				position: {
-					x: 500,
-					y: 280
-				},
-				attrs: {
-					text: {
-						text: 'id'
-					}
-				}
-			},{
-				_swarmId: 'hexagon5',
-				type: 'hexagon',
-				swarmComponentType: 'phase',
-				position: {
-					x: 520,
-					y: 160
-				},
-				attrs: {
-					text: {
-						text: 'id'
-					}
-				}
+    	var models = [];
+	
+	var swarms = [];
+
+	this.getSwarms = function(callback){
+
+	// subsitute with service call
+
+        swarmHub.on('swarmManager.js', 'gotSwarmsFromDB', function(swarm){
+
+            models = [];
+
+            swarms = [];
+
+            for(var elem in swarm.result){
+
+            	var node = swarm.result[elem];
+
+				swarms.push({
+					id: node.swarmId,
+					name: node.name
+				});
+
+				models[node.swarmId.toString()] = node.nodes;
 			}
-			],
-			links: [
-				{
-					source: 'hexagon1',
-					target: 'hexagon2'
-				},{
-					source: 'hexagon2',
-					target: 'hexagon5'
-				},{
-					source: 'hexagon1',
-					target: 'hexagon4'
-				},{
-					source: 'hexagon4',
-					target: 'hexagon3'
-				}
-			]
-		},
-		'2': {
-            nodes: [
-                {
-                    _swarmId: 'hexagon1',
-                    type: 'hexagon',
-                    swarmComponentType: 'ctor',
-                    position: {
-                        x: 50,
-                        y: 240
-                    },
-                    attrs: {
-                        text: {
-                            text: 'id'
-                        }
-                    }
-                },{
-                    _swarmId: 'hexagon2',
-                    type: 'hexagon',
-                    swarmComponentType: 'phase',
-                    position: {
-                        x: 280,
-                        y: 40
-                    },
-                    attrs: {
-                        text: {
-                            text: 'id'
-                        }
-                    }
-                },{
-                    _swarmId: 'hexagon3',
-                    swarmComponentType: 'phase',
-                    type: 'hexagon',
-                    position: {
-                        x: 220,
-                        y: 340
-                    },
-                    attrs: {
-                        text: {
-                            text: 'id'
-                        }
-                    }
-                }
-            ],
-            links: [
-                {
-                    source: 'hexagon1',
-                    target: 'hexagon2'
-                },{
-                    source: 'hexagon2',
-                    target: 'hexagon3'
-                },{
-                    source: 'hexagon1',
-                    target: 'hexagon3'
-                }
-            ]
-        }
-	};
 
-	var swarms = [
-		{
-			id: 1,
-			name: 'Main Swarm'
-		},
-        {
-            id: 2,
-            name: 'Second Swarm'
-        }
-	];
+			callback(swarms);
+        });
 
-	this.getSwarms = function(){
-
-		// subsitute with service call
-
-		return swarms;
+		swarmHub.startSwarm('swarmManager.js', 'getSwarms');
 	};
 
 	this.getGraphCells = function(swarmId){
@@ -217,6 +89,10 @@ app.service('modelService', ['$window', function($window){
 
 		var cell = new joint.shapes.html.Hexagon(props);
 
+		if(typeof(props.swarmData) !== 'undefined'){
+			cell.swarmData = props.swarmData;
+		}
+
 		cell.addPort({group: 'top'});
 	    cell.addPort({group: 'bottom'});
 	    cell.addPort({group: 'left'});
@@ -243,5 +119,72 @@ app.service('modelService', ['$window', function($window){
         };
 
 		return _self.addHexagon(props);
+	};
+
+	var serializeSwarm = function(graph){
+
+		var cells = graph.attributes.cells.models;
+
+		var nodes = [];
+		var links = [];
+
+		for(var i in cells){
+
+            var cell = cells[i];
+
+			if(cell.attributes.type === 'hexagon'){
+
+				var node = {
+                    _swarmId: cell.attributes._swarmId,
+                    type: cell.attributes.type,
+                    swarmComponentType: cell.attributes.swarmComponentType,
+                    position: cell.attributes.position,
+                    attrs: {
+                        text: {
+                            text: cell.attributes.attrs.text.text
+                        }
+                    }
+				};
+
+				if(typeof(cell.swarmData) !== 'undefined'){
+				    node.swarmData = cell.swarmData;
+				    node.attrs.text.text = cell.swarmData.name;
+                }
+
+                nodes.push(node);
+			}else if(cell.attributes.type === 'link'){
+
+			    var sourceCellId = cell.attributes.source.id;
+			    var sourceCell = graph.getCell(sourceCellId).attributes._swarmId;
+
+                var targetCellId = cell.attributes.target.id;
+                var targetCell = graph.getCell(targetCellId).attributes._swarmId;
+
+			    links.push({
+                    source: sourceCell,
+                    target: targetCell
+                });
+            }
+		}
+
+		return {
+		    nodes: nodes,
+            links: links
+        }
+	};
+
+	this.saveSwarm = function(graph, swarmId, callback){
+
+        swarmHub.on('swarmManager.js', 'savedSwarmToDb', function(swarm){
+
+            if(!swarm.err){
+                callback();
+            }
+        });
+
+	    var serializedSwarm = serializeSwarm(graph);
+
+	    /*swarmHub.startSwarm('swarmManager.js', 'saveSwarm', swarmId, serializedSwarm);*/
+        swarmHub.startSwarm('swarmManager.js', 'saveSwarm', swarmId, JSON.stringify(serializedSwarm, null));
 	}
 }]);

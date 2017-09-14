@@ -23,8 +23,8 @@ app.controller('swarmIdeController', ['$scope', 'swarmHubService', 'modelService
 	// getAvailableSwarms();
 	initGraphCells();
 
-	$scope.project = {
-		adapters: [],
-		swarms: modelService.getSwarms()
-	}
+    /*$scope.project = {
+        adapters: [],
+		swarms: modelService.getSwarms
+	};*/
 }]);

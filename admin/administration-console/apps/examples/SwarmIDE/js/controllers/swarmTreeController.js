@@ -1,4 +1,4 @@
-app.controller('swarmTreeController', ['$scope', function ($scope) {
+app.controller('swarmTreeController', ['$scope', 'modelService', function ($scope, modelService) {
 
 	var initNodeTreeToggle = function(){
 
@@ -20,6 +20,25 @@ app.controller('swarmTreeController', ['$scope', function ($scope) {
 	};
 
 	initNodeTreeToggle();
+
+    $scope.project = {
+        adapters: [],
+        swarms: []
+    };
+
+    modelService.getSwarms(function(swarmCollection){
+
+        $scope.project = {
+            adapters: [],
+            swarms: []
+		};
+
+    	for(var i in swarmCollection){
+            $scope.project.swarms[i] = swarmCollection[i];
+		}
+
+		$scope.$apply();
+	});
 
 	$scope.startEditSwarm = function(swarm){
 		$scope.objectForCanvas = swarm;

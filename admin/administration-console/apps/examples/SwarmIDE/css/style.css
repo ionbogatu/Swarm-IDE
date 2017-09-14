@@ -1,3 +1,7 @@
+.app {
+    position: absolute;
+}
+
 .form-group{
     padding: 5px 0px;
 }
@@ -132,6 +136,38 @@
     height: 35px;
     width:49%;
     z-index: 10000;
+}
+
+.node-form-modal{
+    position: fixed;
+    top: 20px;
+    margin: 0 auto;
+}
+
+.modal-dialog {
+    z-index: 1050;
+}
+
+.ctor-params-wrapper{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.ctor-params-wrapper > li{
+    padding-bottom: 15px;
+}
+
+.add-more-params-button{
+    cursor: pointer;
+}
+
+.add-more-params-button > i{
+    font-size: 34px;
+}
+
+.ctor-code-wrapper .ctor-code{
+    height: 100px;
 }
 
 /* /swarm-ide styles */

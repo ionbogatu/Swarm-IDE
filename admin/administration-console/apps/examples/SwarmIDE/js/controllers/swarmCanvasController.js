@@ -1,4 +1,4 @@
-app.controller('swarmCanvasController', ['$scope', 'modelService', 'ModalService', function ($scope, modelService, ModalService) {
+app.controller('swarmCanvasController', ['$scope', 'modelService', 'ModalService', function ($scope, modelService, ModalService, close) {
 
     var paperElement = $('#paper');
 
@@ -10,6 +10,8 @@ app.controller('swarmCanvasController', ['$scope', 'modelService', 'ModalService
         gridSize: 1,
         linkPinning: false
     });
+
+    $scope.$parent.paper = paper;
 
 	var reloadGraphCells = function(){
 
@@ -87,15 +89,20 @@ app.controller('swarmCanvasController', ['$scope', 'modelService', 'ModalService
         if(cellView.model.attributes.type === 'hexagon'){
             
             // set display formular according to node type (ctor or phase)
-            $scope.displayFormularByType = cellView.model.attributes.swarmComponentType;
+            $scope.formularType = cellView.model.attributes.swarmComponentType;
+            $scope.elementId = cellView.model.attributes.id;
 
             // open modal
 
             ModalService.showModal({
                 templateUrl: "tpl/modals/swarmComponentFormModal.html",
-                controller: "swarmComponentFormModalController"
+                controller: "swarmComponentFormModalController",
+                scope: $scope
             }).then(function(modal) {
                 modal.element.modal();
+                modal.close.then(function(data){
+		    close();
+                });
             });
         }
     });
